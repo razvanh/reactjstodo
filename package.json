@@ -1,0 +1,21 @@
+{
+  "name": "reactToDo",
+  "version": "1.0.0",
+  "description": "To Do app built using React.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/razvanh/reactjstodo"
+  },
+  "author": "Razvan Horeanga",
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "gulp-browserify": "^0.5.1",
+    "gulp-react": "^3.1.0",
+    "gulp-webserver": "^0.8.8",
+    "jshint-stylish": "^1.0.0",
+    "lodash": "^4.13.1",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "reactify": "^1.1.1"
+  }
+}
