@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     browserify = require('gulp-browserify'),
-    webserver = require('gulp-webserver');
+    webserver = require('gulp-webserver'),
+    uglify = require('gulp-uglify');
     
 var src = './process',
     app = './builds/app';
@@ -14,6 +15,7 @@ gulp.task('js', function() {
     .on('error', function (err) {
       console.error('Error!', err.message);
     })
+    //.pipe(uglify())
     .pipe(gulp.dest(app + '/js'));
 });
 
