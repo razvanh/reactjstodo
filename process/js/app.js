@@ -1,5 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var _ = require('lodash');
+
+var TodoItem = require('./TodoItem');
 
 var MainInterface = React.createClass({
 	getInitialState: function (){
@@ -10,7 +13,6 @@ var MainInterface = React.createClass({
 
 	componentDidMount: function(){
 		this.serverRequest =  $.get('./js/data.json', function(result){
-			console.log('test');
 			var tempToDos = result;
 			this.setState({
 				myToDos: tempToDos
@@ -20,16 +22,24 @@ var MainInterface = React.createClass({
 
 	componentWillUnmount: function(){
 		this.serverRequest.abort();
-	},
+	},//componentWillMount
+
+	deleteTodo: function(item){
+		var allToDos = this.state.myToDos;
+		var newToDos = _.without(allToDos,item);
+		this.setState({
+			myToDos : newToDos
+		});//setState
+	},//deleteTodo
+
 	render: function(){
 		var todos = this.state.myToDos;
 		todos = todos.map(function(item,index){
 			return (
-					<li key={index}>
-						<h2>{ this.state.myToDos[index].title }</h2>
-						<p className="small-text">Due on { this.state.myToDos[index].dueDate}</p>
-						<p>{ this.state.myToDos[index].details }</p>
-					</li>
+					<TodoItem key = { index }
+					singleItem = { item } 
+					whichItem = { item }
+					onDelete = { this.deleteTodo } />
 				)//return
 		}.bind(this)); //todos.map
 		return (
@@ -39,6 +49,7 @@ var MainInterface = React.createClass({
 			)
 	}//render function
 }); //Main Interface Component
+
 
 ReactDOM.render(
 	<MainInterface />,
