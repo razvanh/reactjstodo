@@ -3,6 +3,7 @@ var ReactDOM = require('react-dom');
 var _ = require('lodash');
 
 var TodoItem = require('./TodoItem');
+var AddToDo = require('./AddToDo');
 
 var MainInterface = React.createClass({
 	getInitialState: function (){
@@ -15,10 +16,11 @@ var MainInterface = React.createClass({
 		this.serverRequest =  $.get('./js/data.json', function(result){
 			var tempToDos = result;
 			this.setState({
+				todoFormVisible : false,
 				myToDos: tempToDos
 			});//setState
 		}.bind(this));//serverRequest
-	},
+	},//componentDidMount
 
 	componentWillUnmount: function(){
 		this.serverRequest.abort();
@@ -32,6 +34,13 @@ var MainInterface = React.createClass({
 		});//setState
 	},//deleteTodo
 
+	toggleAddToDoFormDisplay : function(){
+		var tempVisibility = !this.state.todoFormVisible;
+		this.setState({
+			todoFormVisible: tempVisibility
+		});//setState
+	}, //toggleAddToDOFormDisplay
+
 	render: function(){
 		var todos = this.state.myToDos;
 		todos = todos.map(function(item,index){
@@ -42,11 +51,18 @@ var MainInterface = React.createClass({
 					onDelete = { this.deleteTodo } />
 				)//return
 		}.bind(this)); //todos.map
+
 		return (
-			<ul className="todo-list">
-				{ todos }
-			</ul>
-			)
+			<div>
+				<AddToDo 
+				formVisible = { this.state.todoFormVisible }
+				handleFormDisplay = { this.toggleAddToDoFormDisplay }
+				/>
+				<ul className="todo-list">
+					{ todos }
+				</ul>
+			</div>	
+			)//return
 	}//render function
 }); //Main Interface Component
 
