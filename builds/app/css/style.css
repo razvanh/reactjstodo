@@ -465,3 +465,9 @@ body {
   background-color: #3a0679;
   color:#fff;
 }
+
+.main-container {
+  max-width:30em;
+  margin:0 auto;
+  padding:1em;
+}
