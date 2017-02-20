@@ -2,10 +2,23 @@ var React = require('react');
 
 var AddToDo = React.createClass({
 
-		toggleFormDisplay: function(){
-			this.props.handleFormDisplay();
-		},
+	toggleFormDisplay: function(){
+		this.props.handleFormDisplay();
+	},
 
+	handleSubmit: function(e){
+		var tempTodo = {
+			title: this.refs.inputTodoTitle.value,
+			dueDate: this.refs.inputDueDate.value,
+			details: this.refs.inputTodoDetails.value
+		}//tempTodo
+		e.preventDefault();
+		this.props.addTodoItem(tempTodo);
+
+		this.refs.inputTodoTitle.value = '';
+		this.refs.inputDueDate.value = '';
+		this.refs.inputTodoDetails.value = '';
+	},//handleSubmit
 
 	render: function(){
 
@@ -18,18 +31,18 @@ var AddToDo = React.createClass({
 				<p onClick={ this.toggleFormDisplay }>
 					Add new To Do
 				</p>
-				<form style= {displayAddToDoForm} >
+				<form style= {displayAddToDoForm} onSubmit ={ this.handleSubmit }>
 					<p>
-						<label for="todoTitle">What needs to be done:</label>
+						<label htmlFor="todoTitle">What needs to be done:</label>
 						<input type="text" id="todoTitle" ref="inputTodoTitle"/>
 					</p>
 					<p>
-						<label for="todoDate">Due date</label>
+						<label htmlFor="todoDate">Due date</label>
 						<input type="text" id="todoDate" ref="inputDueDate"/>
 					</p>
 
 					<p>
-					<label for="todoDetails">Details</label>
+					<label htmlFor="todoDetails">Details</label>
 					<textarea name="todoDetails" id="todoDetails" ref="inputTodoDetails" cols="30" rows="10"></textarea>
 					</p>
 					<p>
