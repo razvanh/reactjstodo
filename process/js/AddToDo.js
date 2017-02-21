@@ -28,9 +28,9 @@ var AddToDo = React.createClass({
 
 		return(
 			<div>
-				<p onClick={ this.toggleFormDisplay }>
+				<a onClick={ this.toggleFormDisplay } className="button button-large">
 					Add new To Do
-				</p>
+				</a>
 				<form style= {displayAddToDoForm} onSubmit ={ this.handleSubmit }>
 					<p>
 						<label htmlFor="todoTitle">What needs to be done:</label>

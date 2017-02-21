@@ -471,3 +471,47 @@ body {
   margin:0 auto;
   padding:1em;
 }
+.todo-list {
+  list-style-type: none;
+  margin:0;
+  padding:0;
+}
+
+.todo-list li {
+  margin:0;
+  padding-left: 0;
+}
+
+.button, button {
+  background-color:#d84e3c;
+  color:#fff;
+  padding:.5em 1em;
+  border: none;
+  border-radius:3px;
+  box-shadow: 0 0 2px #000;
+}
+
+.button-large {
+  display:block;
+  margin:1em 0;
+  padding:1.5em 1em;
+  text-align: center;
+  font-weight:bold;
+}
+
+.button-done {
+  background-color:#facd1d;
+  color:#000;
+}
+
+label {
+  display: block;
+  padding:.5em 0;
+}
+
+input,textarea {
+  width:calc(100% - 1em);
+  border-radius:3px;
+  border:0;
+  padding:.5em;
+}
