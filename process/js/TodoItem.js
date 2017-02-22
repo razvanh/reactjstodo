@@ -10,7 +10,7 @@ var TodoItem = React.createClass({
 		return(
 			<li>
 				<h2>{ this.props.singleItem.title }</h2>
-				<p className="small-text">Due on { this.props.singleItem.dueDate}</p>
+				<p className="date">{ this.props.singleItem.dueDate}</p>
 				<p>{ this.props.singleItem.details }</p>
 				<p><button onClick={this.handleDelete} className="button-done">Done</button></p>
 			</li>

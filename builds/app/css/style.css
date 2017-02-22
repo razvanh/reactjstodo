@@ -462,6 +462,7 @@ template {
 
 
 body {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
   background-color: #3a0679;
   color:#fff;
 }
@@ -480,6 +481,16 @@ body {
 .todo-list li {
   margin:0;
   padding-left: 0;
+  border-top:1px #0d011d solid;
+  border-bottom:1px #490899 solid;
+}
+
+.todo-list li:first-child {
+  border-top:0;
+}
+
+.todo-list li:last-child {
+  border-bottom:0;
 }
 
 .button, button {
@@ -514,4 +525,9 @@ input,textarea {
   border-radius:3px;
   border:0;
   padding:.5em;
+}
+
+.date {
+  text-transform: uppercase;
+  font-weight: bold;
 }
