@@ -543,18 +543,18 @@ input,textarea {
 }
 
 .flex-container > * {
-  flex: 1 0 5em;
+  flex: 1 0 1em;
   margin: 0.5em; 
 }
 
 .flex-container > .double {
-  flex-basis:11em;
+  flex-basis: calc(40% - 1em);
 }
 
 .flex-container > .triple {
-  flex-basis:17em;
+  flex-basis: calc(60% - 1em);
 }
 
 .flex-container > .quadruple {
-  flex-basis:23em;
+  flex-basis: calc(80% - 1em);
 }
