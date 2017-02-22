@@ -4,6 +4,9 @@ var AddToDo = React.createClass({
 
 	toggleFormDisplay: function(){
 		$( "form" ).fadeToggle("slow");
+		$(".button-large").text(function(i, text){
+          return text === "Add new To Do" ? "Done Adding" : "Add new To Do";
+      	});
 	},
 
 	handleSubmit: function(e){
