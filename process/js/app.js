@@ -42,12 +42,6 @@ var MainInterface = React.createClass({
 		});//setState
 	},//addTodo
 
-	toggleAddToDoFormDisplay : function(){
-		var tempVisibility = !this.state.todoFormVisible;
-		this.setState({
-			todoFormVisible: tempVisibility
-		});//setState
-	}, //toggleAddToDOFormDisplay
 
 	render: function(){
 		var todos = this.state.myToDos;
@@ -64,7 +58,6 @@ var MainInterface = React.createClass({
 			<div>
 				<AddToDo 
 				formVisible = { this.state.todoFormVisible }
-				handleFormDisplay = { this.toggleAddToDoFormDisplay }
 				addTodoItem = { this.addTodo }
 				/>
 				<ul className="todo-list">

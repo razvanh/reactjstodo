@@ -3,7 +3,7 @@ var React = require('react');
 var AddToDo = React.createClass({
 
 	toggleFormDisplay: function(){
-		this.props.handleFormDisplay();
+		$( "form" ).fadeToggle("slow");
 	},
 
 	handleSubmit: function(e){
