@@ -19,13 +19,12 @@ var AddToDo = React.createClass({
 		return(
 			<div>
 				
-				<form onSubmit ={ this.handleSubmit }>
-					<p>
-						<label htmlFor="todoTitle">What needs to be done:</label>
-						<input type="text" id="todoTitle" ref="inputTodoTitle"/>
+				<form onSubmit ={ this.handleSubmit } className="add-todo flex-container">
+					<p className="quadruple">
+						<input type="text" id="todoTitle" ref="inputTodoTitle" placeholder="Add New Item"/>
 					</p>
 					<p>
-						<button type="submit">Add</button>
+						<button type="submit" className="full-width">Add</button>
 					</p>
 				</form>
 			</div>	

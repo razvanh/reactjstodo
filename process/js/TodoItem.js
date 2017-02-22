@@ -14,10 +14,10 @@ var TodoItem = React.createClass({
 
 	render: function() {
 		return(
-			<li>
-				<input type="checkbox" onChange={this.handleComplete} ref="checkbox"/>
-				<label>{ this.props.singleItem.title }</label>
-				<p><button onClick={this.handleDelete} className="button-done">Done</button></p>
+			<li className="flex-container">
+				<input type="checkbox" onChange={this.handleComplete} ref="checkbox" />
+				<label className="quadruple">{ this.props.singleItem.title }</label>
+				
 			</li>
 			)//return
 	}//render

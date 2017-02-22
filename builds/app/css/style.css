@@ -462,6 +462,7 @@ template {
 
 
 body {
+  font-size:18px;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
   background-color: #3a0679;
   color:#fff;
@@ -515,8 +516,11 @@ body {
   color:#000;
 }
 
+.add-todo {
+  padding:2em 0;
+}
+
 label {
-  display: block;
   padding:.5em 0;
 }
 
@@ -527,7 +531,30 @@ input,textarea {
   padding:.5em;
 }
 
-.date {
-  text-transform: uppercase;
-  font-weight: bold;
+.full-width {
+  width:100%;
+}
+
+.flex-container {
+  display: flex; 
+  flex-wrap: wrap; 
+  margin: -0.5em; 
+  align-items: center;
+}
+
+.flex-container > * {
+  flex: 1 0 5em;
+  margin: 0.5em; 
+}
+
+.flex-container > .double {
+  flex-basis:11em;
+}
+
+.flex-container > .triple {
+  flex-basis:17em;
+}
+
+.flex-container > .quadruple {
+  flex-basis:23em;
 }
