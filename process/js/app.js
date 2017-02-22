@@ -8,7 +8,8 @@ var AddToDo = require('./AddToDo');
 var MainInterface = React.createClass({
 	getInitialState: function (){
 		return {
-			myToDos: []
+			myToDos: [],
+			completedToDos: []
 		}//return
 	},//getInitialState
 
@@ -16,7 +17,6 @@ var MainInterface = React.createClass({
 		this.serverRequest =  $.get('./js/data.json', function(result){
 			var tempToDos = result;
 			this.setState({
-				todoFormVisible : false,
 				myToDos: tempToDos
 			});//setState
 		}.bind(this));//serverRequest
@@ -42,6 +42,22 @@ var MainInterface = React.createClass({
 		});//setState
 	},//addTodo
 
+	completeTodo: function(item){
+		var tempTodos = this.state.completedToDos;
+		tempTodos.unshift(item);
+		console.log('test');
+		var that = this;
+		setTimeout(() => {
+            this.setState({
+					completedToDos: tempTodos
+				});//setState
+            that.deleteTodo(item);
+        }, 500);
+
+
+		
+	},//completeTodo
+
 
 	render: function(){
 		var todos = this.state.myToDos;
@@ -50,14 +66,15 @@ var MainInterface = React.createClass({
 					<TodoItem key = { index }
 					singleItem = { item } 
 					whichItem = { item }
-					onDelete = { this.deleteTodo } />
+					onDelete = { this.deleteTodo } 
+					onComplete = {this.completeTodo}
+					/>
 				)//return
 		}.bind(this)); //todos.map
 
 		return (
 			<div>
 				<AddToDo 
-				formVisible = { this.state.todoFormVisible }
 				addTodoItem = { this.addTodo }
 				/>
 				<ul className="todo-list">

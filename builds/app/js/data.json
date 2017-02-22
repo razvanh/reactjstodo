@@ -1,12 +1,10 @@
 [
 	{
 		"title": "Create To Do App using React.js",
-		"dueDate": "21 may",
-		"details": "Implement simple To Do list functionality using React.js"
+		"id" : 1487774416290
 	},
 	{
 		"title": "Work on the design of the To Do app",
-		"dueDate": "10 Jun",
-		"details": "Make it beautiful:)"
+		"id" : 1487774464097
 	}
 ]

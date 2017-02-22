@@ -5,13 +5,18 @@ var TodoItem = React.createClass({
 	handleDelete: function(){
 		this.props.onDelete(this.props.whichItem);
 	},
+	handleComplete:function(){
+		if (this.refs.checkbox.checked) {
+			this.props.onComplete(this.props.whichItem);
+		}
+
+	},
 
 	render: function() {
 		return(
 			<li>
-				<h2>{ this.props.singleItem.title }</h2>
-				<p className="date">{ this.props.singleItem.dueDate}</p>
-				<p>{ this.props.singleItem.details }</p>
+				<input type="checkbox" onChange={this.handleComplete} ref="checkbox"/>
+				<label>{ this.props.singleItem.title }</label>
 				<p><button onClick={this.handleDelete} className="button-done">Done</button></p>
 			</li>
 			)//return
