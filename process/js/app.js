@@ -36,7 +36,7 @@ var MainInterface = React.createClass({
 
 	addTodo: function(item){
 		var tempTodos = this.state.myToDos;
-		tempTodos.push(item);
+		tempTodos.unshift(item);
 		this.setState({
 			myToDos: tempTodos
 		});//setState
