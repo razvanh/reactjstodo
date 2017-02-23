@@ -531,6 +531,11 @@ input,textarea {
   padding:.5em;
 }
 
+input[type="checkbox"] {
+  width:auto;
+  margin-right:9px;
+}
+
 .full-width {
   width:100%;
 }
@@ -543,18 +548,26 @@ input,textarea {
 }
 
 .flex-container > * {
-  flex: 1 0 1em;
+  flex: 1 0 calc( 100% - 1em);
   margin: 0.5em; 
 }
 
-.flex-container > .double {
-  flex-basis: calc(40% - 1em);
-}
+@media all and (min-width:30em){
+  
+  .flex-container > * {
+    flex: 1 0 1em;
+    margin: 0.5em; 
+  }
 
-.flex-container > .triple {
-  flex-basis: calc(60% - 1em);
-}
+  .flex-container > .double {
+    flex-basis: calc(40% - 1em);
+    }
 
-.flex-container > .quadruple {
-  flex-basis: calc(80% - 1em);
+  .flex-container > .triple {
+      flex-basis: calc(60% - 1em);
+    }
+
+  .flex-container > .quadruple {
+    flex-basis: calc(80% - 1em);
+  }
 }
