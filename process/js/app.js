@@ -45,25 +45,18 @@ var MainInterface = React.createClass({
 	completeTodo: function(item){
 		var tempTodos = this.state.completedToDos;
 		tempTodos.unshift(item);
-		console.log('test');
-		var that = this;
-		setTimeout(() => {
-            this.setState({
-					completedToDos: tempTodos
-				});//setState
-            that.deleteTodo(item);
-        }, 500);
-
-
-		
+		this.setState({
+			completedToDos: tempTodos
+		});//setState
+		this.deleteTodo(item);		
 	},//completeTodo
 
 
 	render: function(){
 		var todos = this.state.myToDos;
-		todos = todos.map(function(item,index){
+		todos = todos.map(function(item){
 			return (
-					<TodoItem key = { index }
+					<TodoItem key = { item.id }
 					singleItem = { item } 
 					whichItem = { item }
 					onDelete = { this.deleteTodo } 
