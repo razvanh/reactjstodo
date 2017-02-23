@@ -14,12 +14,20 @@ var MainInterface = React.createClass({
 	},//getInitialState
 
 	componentDidMount: function(){
-		this.serverRequest =  $.get('./js/data.json', function(result){
-			var tempToDos = result;
-			this.setState({
-				myToDos: tempToDos
+		if (localStorage.getItem("razvanToDo") === null) {
+			localStorage.setItem("razvanToDo", JSON.stringify([]));
+		}
+
+		if (localStorage.getItem("razvanToDoDone") === null) {
+			localStorage.setItem("razvanToDoDone", JSON.stringify([]));
+		}
+
+		var toDos =  JSON.parse(localStorage.getItem("razvanToDo"));
+		var done =  JSON.parse(localStorage.getItem("razvanToDoDone"));
+		this.setState({
+				myToDos: toDos,
+				completedToDos : done
 			});//setState
-		}.bind(this));//serverRequest
 	},//componentDidMount
 
 	componentWillUnmount: function(){
@@ -29,6 +37,7 @@ var MainInterface = React.createClass({
 	deleteTodo: function(item){
 		var allToDos = this.state.myToDos;
 		var newToDos = _.without(allToDos,item);
+		localStorage.setItem("razvanToDo", JSON.stringify(newToDos));
 		this.setState({
 			myToDos : newToDos
 		});//setState
@@ -37,6 +46,7 @@ var MainInterface = React.createClass({
 	addTodo: function(item){
 		var tempTodos = this.state.myToDos;
 		tempTodos.unshift(item);
+		localStorage.setItem("razvanToDo", JSON.stringify(tempTodos));
 		this.setState({
 			myToDos: tempTodos
 		});//setState
@@ -45,6 +55,7 @@ var MainInterface = React.createClass({
 	completeTodo: function(item){
 		var tempTodos = this.state.completedToDos;
 		tempTodos.unshift(item);
+		localStorage.setItem("razvanToDoDone", JSON.stringify(tempTodos));
 		this.setState({
 			completedToDos: tempTodos
 		});//setState
