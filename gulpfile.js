@@ -7,6 +7,7 @@ var src = './process',
     app = './builds/app';
 
 gulp.task('js', function() {
+  process.env.NODE_ENV = 'production';
   return gulp.src( src + '/js/app.js' )
     .pipe(browserify({
       transform: 'reactify',
@@ -15,7 +16,7 @@ gulp.task('js', function() {
     .on('error', function (err) {
       console.error('Error!', err.message);
     })
-    //.pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest(app + '/js'));
 });
 

@@ -16,9 +16,7 @@ var TodoItem = React.createClass({
 	render: function() {
 		return(
 			<li className="flex-container" >
-				
 				<label className="quadruple"> <input type="checkbox" onChange={this.handleComplete} ref="checkbox" /> { this.props.singleItem.title }</label>
-				
 			</li>
 			)//return
 	}//render
