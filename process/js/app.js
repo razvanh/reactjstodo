@@ -36,11 +36,11 @@ var MainInterface = React.createClass({
 	},//componentWillMount
 
 	deleteTodo: function(item){
-		var allToDos = this.state.myToDos;
-		var newToDos = _.without(allToDos,item);
-		localStorage.setItem("razvanToDo", JSON.stringify(newToDos));
+		var doneToDos = this.state.completedToDos;
+		var newToDos = _.without(doneToDos,item);
+		localStorage.setItem("razvanToDoDone", JSON.stringify(newToDos));
 		this.setState({
-			myToDos : newToDos
+			completedToDos : newToDos
 		});//setState
 	},//deleteTodo
 
@@ -54,13 +54,21 @@ var MainInterface = React.createClass({
 	},//addTodo
 
 	completeTodo: function(item){
-		var tempTodos = this.state.completedToDos;
-		tempTodos.unshift(item);
-		localStorage.setItem("razvanToDoDone", JSON.stringify(tempTodos));
+		var tempCompletedTodos = this.state.completedToDos;
+		tempCompletedTodos.unshift(item);
+		localStorage.setItem("razvanToDoDone", JSON.stringify(tempCompletedTodos));
 		this.setState({
-			completedToDos: tempTodos
+			completedToDos: tempCompletedTodos
 		});//setState
-		this.deleteTodo(item);		
+
+		var allToDos = this.state.myToDos;
+		var newToDos = _.without(allToDos,item);
+		localStorage.setItem("razvanToDo", JSON.stringify(newToDos));
+		this.setState({
+			myToDos : newToDos
+		});//setState
+
+		//this.deleteTodo(item);		
 	},//completeTodo
 
 
