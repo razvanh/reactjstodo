@@ -4,6 +4,7 @@ var _ = require('lodash');
 
 var TodoItem = require('./TodoItem');
 var AddToDo = require('./AddToDo');
+var DoneItem = require('./DoneItem');
 
 var MainInterface = React.createClass({
 	getInitialState: function (){
@@ -76,6 +77,16 @@ var MainInterface = React.createClass({
 				)//return
 		}.bind(this)); //todos.map
 
+		var done = this.state.completedToDos;
+		done = done.map(function(item){
+			return (
+					<DoneItem key= {item.id}
+					singleItem = { item }
+					onDelete = { this.deleteTodo }
+					/>
+				)//return
+		}.bind(this));//done.map
+
 		return (
 			<div>
 				<AddToDo 
@@ -83,6 +94,10 @@ var MainInterface = React.createClass({
 				/>
 				<ul className="todo-list">
 					{ todos }
+				</ul>
+
+				<ul className="todo-list done-list">
+					{ done }
 				</ul>
 			</div>	
 			)//return

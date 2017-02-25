@@ -486,6 +486,12 @@ body {
   border-bottom:1px #490899 solid;
 }
 
+.done-list li {
+  border:0;
+  color:#ccc;
+  text-decoration: line-through;
+}
+
 .todo-list li:first-child {
   border-top:0;
 }
