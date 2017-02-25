@@ -489,7 +489,20 @@ body {
 .done-list li {
   border:0;
   color:#ccc;
+}
+
+.done-list li span{
   text-decoration: line-through;
+}
+
+.done-list li a{
+  color:#d00;
+  font-size:.8em;
+  display:inline-block;
+  text-decoration:none;
+  font-weight:bold;
+  width:.8em;
+  padding:.2em;
 }
 
 .todo-list li:first-child {
@@ -509,13 +522,6 @@ body {
   box-shadow: 0 0 2px #000;
 }
 
-.button-large {
-  display:block;
-  margin:1em 0;
-  padding:1.5em 1em;
-  text-align: center;
-  font-weight:bold;
-}
 
 .button-done {
   background-color:#facd1d;
